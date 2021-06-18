@@ -4,54 +4,60 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hovertab</title>
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
   </head>
   <body>
-    <div class="wrap">
-      <div class="tabs">
-        <input class="tab" type="radio" name="tabs" checked="checked" id="tab--1" />
-        <input class="tab" type="radio" name="tabs" id="tab--2" />
-        <input class="tab" type="radio" name="tabs" id="tab--3" />
-        <input class="tab" type="radio" name="tabs" id="tab--4" />
-
-        <label class="button" for="tab--1" id="button--1"> SATU </label>
-        <label class="button" for="tab--2" id="button--2"> DUA </label>
-        <label class="button" for="tab--3" id="button--3"> TIGA </label>
-        <label class="button" for="tab--4" id="button--4"> EMPAT </label>
-
-        <div class="display" id="display--1">
-          <span class="title">Pure CSS3 Tabbed Content</span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dolor quo, dicta perspiciatis amet, quod delectus inventore, nobis officia explicabo quidem ipsum corporis voluptatibus repellat id earum eaque! Magnam iusto
-            asperiores adipisci suscipit ad praesentium dicta, perspiciatis earum in mollitia repellendus ullam possimus et minima iure reprehenderit aliquid, odit eaque doloribus blanditiis molestiae dolorum. Error, dolores quasi, impedit
-            tempora quia saepe eum ab illum nobis facilis sapiente, temporibus officiis fugit.
-          </p>
-        </div>
-        <div class="display" id="display--2">
-          <span class="title">No JavaScript Needed</span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex soluta dolorum porro maiores id ipsum eos excepturi perferendis similique nihil quasi tempora facilis, natus necessitatibus quam in sed enim repellat temporibus beatae
-            assumenda velit veritatis. Adipisci ex vero corrupti est recusandae nihil minima autem odio dolor velit quam voluptatibus delectus, tempore quo odit placeat ipsa sit, veniam id ducimus exercitationem! Facere eius tempore
-            voluptatem harum accusantium officiis quos officia, explicabo assumenda beatae mollitia molestias ad aut minima error ut, id omnis perferendis, nesciunt animi. Facere, recusandae, architecto, soluta et porro magnam repudiandae,
-            aperiam harum accusamus saepe ad commodi explicabo labore!
-          </p>
-        </div>
-        <div class="display" id="display--3">
-          <span class="title">Ugly markup though...</span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas ipsam eveniet dolor iste blanditiis sunt, accusamus cupiditate ratione voluptates tenetur minus facilis saepe laudantium quod dicta, optio illum nulla
-            dignissimos soluta velit. Tempora, inventore. Nesciunt, quasi, iste. Dolorum amet porro, repellendus cumque. Delectus ut, saepe nobis quas minus numquam, culpa dolor dolorum nisi ducimus quam harum impedit architecto quasi sunt
-            pariatur cum dolorem aut, aliquam mollitia voluptates deleniti animi. Delectus dignissimos, libero pariatur aliquid, necessitatibus vel obcaecati natus labore rerum.
-          </p>
-        </div>
-        <div class="display" id="display--4">
-          <span class="title">But it works!</span>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur aperiam, esse ex ipsa? Quibusdam itaque dolor modi laudantium quod deleniti est provident incidunt? Voluptas animi aut, non id, ipsam voluptates.</p>
-        </div>
-      </div>
+    <div class="tab">
+      <button class="tablinks active" onmouseover="openCity(event, 'London')">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, minus unde labore illo quisquam nobis ratione. Pariatur aut aperiam hic voluptates ratione! Animi, quisquam pariatur fugit dolorem rerum veniam vero!
+      </button>
+      <button class="tablinks" onmouseover="openCity(event, 'Paris')">Paris</button>
+      <button class="tablinks" onmouseover="openCity(event, 'Tokyo')">Tokyo</button>
     </div>
+
+    <div id="London" class="tabcontent" style="display: block">
+      <h3>London</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam totam et consectetur vero ex pariatur dignissimos quis laudantium hic voluptate ab libero veritatis consequatur alias qui cupiditate sunt, harum possimus amet eaque
+        optio. Cum voluptatum debitis natus veritatis repellendus nihil eos! Possimus facere architecto exercitationem unde voluptas dicta doloribus pariatur maxime laudantium cum sapiente soluta autem accusantium id labore molestiae,
+        officia odit, ducimus dolores modi sit inventore, fuga sint debitis? Distinctio id quisquam, molestias beatae fugiat, nobis, eligendi non pariatur natus dicta tenetur. Sunt culpa eos possimus molestiae ea omnis accusantium.
+        Cupiditate excepturi animi, ipsum aspernatur porro ea dolorum facilis?
+      </p>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+      <h3>Paris</h3>
+      <p>Paris is the capital of France.</p>
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
+      <h3>Tokyo</h3>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+    <script>
+      function openCity(evt, cityName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName('tabcontent');
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = 'none';
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName('tablinks');
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(' active', '');
+        }
+
+        // Show the current tab, and add an "active" class to the link that opened the tab
+        document.getElementById(cityName).style.display = 'block';
+        evt.currentTarget.className += ' active';
+      }
+    </script>
   </body>
 </html>

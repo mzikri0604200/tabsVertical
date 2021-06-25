@@ -22,30 +22,19 @@ select {
   appearance: none;
   outline: 0;
   border-color: #ced4da;
-  background-image: none;
-}
-
-/* Remove IE arrow */
-select::-ms-expand {
-  display: none;
 }
 
 /* Custom Select */
-.select {
+select {
   position: relative;
   width: 200px;
   height: auto;
-  overflow: hidden;
+  color: #db585a;
   -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-select {
-  cursor: pointer;
-}
-
-/* Arrow */
-.select::after {
+select::after {
   content: '\25BC';
   position: absolute;
   top: 10px;
@@ -59,6 +48,11 @@ select {
 }
 
 /* Transition */
+.custom-select {
+  background: url("./segitiga.svg") no-repeat right 0.75rem center/8px 10px;
+  margin-bottom: 0%;
+}
+
 .input-form {
   -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;

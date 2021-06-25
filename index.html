@@ -9,19 +9,26 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
 
+    <!-- Video.JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous" />
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="videojs-resolution-switcher.css" />
+
+    <!-- ...videojs style code, etc. -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="row mt-5">
       <div class="col-lg-8">
-        <div class="rounded-pill select">
+        <!-- <div class="rounded-pill select">
           <select name="slct" id="slct" class="select input-form rounded-pill pl-4">
             <option selected>Semua Bulan</option>
             <option value="1">Januari</option>
             <option value="2">Desember</option>
             <option value="3">September</option>
           </select>
-        </div>
+        </div> -->
 
         <br />
         <select class="custom-select input-form rounded-pill pl-4">
@@ -32,7 +39,90 @@
         </select>
       </div>
     </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <div class="live-streaming my-3">
+            <video id="video" class="video-js vjs-default-skin"></video>
+
+            <div class="info">
+              <p>Set sources inside <code>&ltvideo&gt</code> tag</p>
+            </div>
+
+            <video id="video_1" class="video-js vjs-default-skin" width="1000" controls data-setup="{}" muted>
+              <source src="https://vjs.zencdn.net/v/oceans.mp4?480" type="video/mp4" label="SD" res="480" />
+              <source src="https://vjs.zencdn.net/v/oceans.mp4?1080" type="video/mp4" label="HD" res="1080" />
+              <source src="https://vjs.zencdn.net/v/oceans.mp4?144" type="video/mp4" label="phone" res="144" />
+              <source src="https://vjs.zencdn.net/v/oceans.mp4?2160" type="video/mp4" label="4k" res="2160" />
+              <div class="vjs-menu-button vjs-menu-button-popup vjs-control vjs-button" aria-label="Quality">
+                <button class="vjs-menu-button vjs-menu-button-popup vjs-resolution-button vjs-button" type="button" aria-disabled="false" aria-haspopup="true" aria-expanded="false" title="basfvjasf">
+                  <span aria-hidden="true" class="vjs-icon-subtitles"></span><span class="vjs-control-text" aria-live="polite">Quality</span></button
+                ><span class="vjs-menu-icon"></span>
+                <div class="vjs-menu">
+                  <ul class="vjs-menu-content" role="menu">
+                    <li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">4k</span><span class="vjs-control-text" aria-live="polite"></span></li>
+                    <li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">HD</span><span class="vjs-control-text" aria-live="polite"></span></li>
+                    <li class="vjs-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="false"><span class="vjs-menu-item-text">SD</span><span class="vjs-control-text" aria-live="polite"></span></li>
+                    <li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="true">
+                      <span class="vjs-menu-item-text">phone</span><span class="vjs-control-text" aria-live="polite">, selected</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+  <script src="videojs-resolution-switcher.js"></script>
+  <script>
+    // fire up the plugin
+    videojs(
+      'video',
+      {
+        controls: true,
+        muted: true,
+        width: 1000,
+        plugins: {
+          videoJsResolutionSwitcher: {
+            ui: true,
+            default: 'low', // Default resolution [{Number}, 'low', 'high'],
+            dynamicLabel: true, // Display dynamic labels or gear symbol
+          },
+        },
+      },
+      function () {
+        var player = this;
+        window.player = player;
+
+        player.updateSrc([
+          {
+            src: 'https://vjs.zencdn.net/v/oceans.mp4?sd',
+            type: 'video/mp4',
+            label: 'SD',
+            res: 360,
+          },
+          {
+            src: 'https://vjs.zencdn.net/v/oceans.mp4?hd',
+            type: 'video/mp4',
+            label: 'HD',
+            res: 720,
+          },
+        ]);
+
+        player.on('resolutionchange', function () {
+          console.info('Source changed to %s', player.src());
+        });
+      }
+    );
+  </script>
+
+  <script>
+    videojs('video_1').videoJsResolutionSwitcher();
+  </script>
 </html>

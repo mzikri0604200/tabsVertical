@@ -1,3 +1,8 @@
+/*! videojs-resolution-switcher - 2015-7-26
+ * Copyright (c) 2016 Kasper Moskwiak
+ * Modified by Pierre Kraft and Derk-Jan Hartman
+ * Licensed under the Apache-2.0 license. */
+
 (function () {
   /* jshint eqnull: true*/
   /* global require */
@@ -46,11 +51,11 @@
     var ResolutionMenuButton = videojs.extend(MenuButton, {
       constructor: function (player, options) {
         this.label = document.createElement('span');
-        options.label = 'jsfjasfka';
+        options.label = 'Quality';
         // Sets this.player_, this.options_ and initializes the component
         MenuButton.call(this, player, options);
-        this.el().setAttribute('aria-label', 'jsfjasfka');
-        this.controlText('jsfjasfka');
+        this.el().setAttribute('aria-label', 'Quality');
+        this.controlText('Quality');
 
         if (options.dynamicLabel) {
           videojs.addClass(this.label, 'vjs-resolution-button-label');
@@ -88,7 +93,7 @@
       return MenuButton.prototype.update.call(this);
     };
     ResolutionMenuButton.prototype.buildCSSClass = function () {
-      return MenuButton.prototype.buildCSSClass.call(this) + ' vjs-resolution-button';
+      return MenuButton.prototype.buildCSSClass.call(this) + ' vjs-icon-hd';
     };
     MenuButton.registerComponent('ResolutionMenuButton', ResolutionMenuButton);
 
@@ -175,9 +180,10 @@
         player.setSourcesSanitized(sources, label, customSourcePicker || settings.customSourcePicker).one(handleSeekEvent, function () {
           player.currentTime(currentTime);
           player.handleTechSeeked_();
-          if (!isPaused) {
+          if (isPaused) {
             // Start playing and hide loadingSpinner (flash issue ?)
-            player.play().handleTechSeeked_();
+            // player.play().handleTechSeeked_();
+            player.trigger('resolutionchange');
           }
           player.trigger('resolutionchange');
         });

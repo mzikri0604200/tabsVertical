@@ -4,69 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
-    <!-- Bootstrap CSS -->
+    <title>Drag and Drop</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
 
-    <!-- Video.JS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous" />
-    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
-    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
-    <link rel="stylesheet" href="videojs-resolution-switcher.css" />
-    <!-- <link href="https://unpkg.com/videojs-max-quality-selector/dist/videojs-max-quality-selector.css" rel="stylesheet" /> -->
-
-    <!-- ...videojs style code, etc. -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="live-streaming my-3">
-            <!-- <video id="video" class="video-js vjs-big-play-centered">
-              <source src="https://vjs.zencdn.net/v/oceans.mp4?sd" type="video/mp4" label="SD" res="480" selected="true" />
-              <source src="https://vjs.zencdn.net/v/oceans.mp4?hd" type="video/mp4" label="HD" res="1080" />
-              <source src="https://vjs.zencdn.net/v/oceans.mp4?phone" type="video/mp4" label="phone" res="144" />
-              <source src="https://vjs.zencdn.net/v/oceans.mp4?4k" type="video/mp4" label="4k" res="2160" />
-            </video> -->
-            <video id="video" class="video-js vjs-big-play-centered" muted controls data-setup="{}">
-              <source src="https://vjs.zencdn.net/v/oceans.mp4?sd" type="video/mp4" label="SD" res="480" />
-              <source src="https://vjs.zencdn.net/v/oceans.mp4?hd" type="video/mp4" label="HD" res="1080" />
-              <source src="https://vjs.zencdn.net/v/oceans.mp4?phone" type="video/mp4" label="phone" res="144" />
-              <source src="https://vjs.zencdn.net/v/oceans.mp4?4k" type="video/mp4" label="4k" res="2160" />
-            </video>
-          </div>
-
-          <a href="index.html" class="btn btn-primary">Video1</a>
-          <a href="video2.html" class="btn btn-primary">Video2</a>
-          <a href="video3.html" class="btn btn-primary">Video3</a>
+      <div class="box">
+        <div class="row m-0">
+          <div class="draggable">Meja 1</div>
+          <div class="draggable">Meja 2</div>
+          <div class="draggable">Meja 3</div>
+          <div class="draggable">Meja 4</div>
+          <div class="dropzone">Drop Here</div>
         </div>
       </div>
+      <!-- <div class="wrapper">
+      </div> -->
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
-    <script src="videojs-resolution-switcher.js"></script>
-    <!-- <script src="https://unpkg.com/videojs-max-quality-selector/dist/videojs-max-quality-selector.min.js"></script> -->
 
-    <script>
-      // var player = videojs('video', {
-      //   autoplay: 'muted',
-      //   controls: true,
-      //   loop: true,
-      //   fluid: true,
-      //   playbackRates: [0.25, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4],
-      // });
-      var player = videojs('video', {
-        autoplay: 'muted',
-        plugins: {
-          videoJsResolutionSwitcher: {
-            default: 'high',
-            dynamicLabel: true,
-          },
-        },
-      });
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>

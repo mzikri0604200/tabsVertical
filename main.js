@@ -1,34 +1,23 @@
 $(document).ready(function () {
-  var max_fields = 10; //maximum input boxes allowed
-  var wrapper = $('.input_fields_wrap'); //Fields wrapper
-  var add_button = $('.add_field_button'); //Add button ID
-  var add_button1 = $('.action1'); //Add button ID
+  $('.hide').hide();
 
-  var x = 1; //initlal text box count
-  $(add_button).click(function (e) {
-    //on add input button click
-    e.preventDefault();
-    if (x < max_fields) {
-      //max input box allowed
-      x++; //text box increment
-      $(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
-    }
+  $('.cls-3').click(function () {
+    let pop = $('.russia-txt').fadeIn();
+    var dataId = $(this).attr('data-title');
+    $('.prov').text(dataId);
+    $(this).fadeIn(pop);
+    // $('.hide').hide();
+    // alert('The data-id of clicked item is: ' + dataId);
   });
+  // $('#ID-BA').click(function () {
+  //   $('.hide').hide();
+  //   $('.indo-txt').fadeIn();
+  //   var dataId = $(this).attr('data-title');
+  //   $('.prov').text(dataId);
+  //   // alert('The data-id of clicked item is: ' + dataId);
+  // });
 
-  $(add_button1).click(function (e) {
-    //on add input button click
-    e.preventDefault();
-    if (x < max_fields) {
-      //max input box allowed
-      x++; //text box increment
-      $(wrapper).append('<div class="form-group"><label for="exampleInputEmail1">Instagram</label><input type="text" name="mytext[]" class="form-control" id="exampleInputEmail1" /><a href="#" class="remove_field">Remove</a></div>'); //add input box
-    }
-  });
-
-  $(wrapper).on('click', '.remove_field', function (e) {
-    //user click on remove text
-    e.preventDefault();
-    $(this).parent('div').remove();
-    x--;
+  $('.close').click(function () {
+    $('.hide').hide();
   });
 });

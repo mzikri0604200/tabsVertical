@@ -1,69 +1,44 @@
-.wrap {
-  // margin: auto;
-  // padding: 0;
-  // display: block;
-  // position: absolute;
-  // top: 0;
-  // right: 0;
-  // bottom: 0;
-  // left: 0;
-  // background: #ff58a5;
-  // overflow: hidden;
-  // @include Anims(0.4s);
-}
+.cls-1,
+.cls-2,
+.cls-3,
+.cls-4,
+.cls-5,
+.cls-6 {
+  &:hover {
+    fill: #333;
+  }
 
-.tabs {
-  // margin: 0;
-  // padding: 0;
-  // display: block;
-  // width: 100%;
-  // height: 100%;
-  // float: left;
-  background: #111;
-}
-
-.tab {
-  display: none;
-}
-
-.button {
-  // margin: 0;
-  // padding: 0;
-  display: block;
-  // position: relative;
-  // width: 160px;
-  // @extend .tab-height;
-  // text-align: center;
-  color: #f0f0f0;
   cursor: pointer;
-  // @include Anims(0.4s);
 }
-.display {
-  // margin: 0;
-  // padding: 0;
-  display: none;
+
+.hide {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  // text-align: center;
   position: absolute;
-  top: 0;
-  right: 0;
-  width: calc(100% - 160px);
-  // height: 100%;
-  background: #ff58a5;
-  overflow: hidden;
+  // margin: 0 auto;
+  // position: absolute;
+  top: 0%; /* position the top  edge of the element at the middle of the parent */
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+  padding: 10px 20px;
+  border: 1px solid #644666;
+  // font-size: 12px;
 }
+// .russia-txt {
+//   position: absolute;
+//   top: 0%; /* position the top  edge of the element at the middle of the parent */
+//   right: 0%;
+//   bottom: 0%;
+//   left: 0%; /* position the left edge of the element at the middle of the parent */
 
-.title {
-  font-size: 1.5em;
-}
+//   // transform: translate(-50%, -50%);
+// }
+// .indo-txt {
+//   position: absolute;
+//   top: 0%; /* position the top  edge of the element at the middle of the parent */
+//   left: 0%; /* position the left edge of the element at the middle of the parent */
 
-#tab--1:checked ~ #button--1,
-#tab--2:checked ~ #button--2,
-#tab--3:checked ~ #button--3,
-#tab--4:checked ~ #button--4 {
-  color: #ff58a5;
-}
-#tab--1:checked ~ #display--1,
-#tab--2:checked ~ #display--2,
-#tab--3:checked ~ #display--3,
-#tab--4:checked ~ #display--4 {
-  display: block;
-}
+//   // transform: translate(-50%, -50%);
+// }

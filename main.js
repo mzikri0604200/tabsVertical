@@ -5,7 +5,7 @@ $(document).ready(function () {
     let pop = $('.russia-txt').fadeIn();
     var dataId = $(this).attr('data-title');
     $('.prov').text(dataId);
-    $(this).fadeIn(pop);
+    // $(this).fadeIn(pop);
     // $('.hide').hide();
     // alert('The data-id of clicked item is: ' + dataId);
   });
